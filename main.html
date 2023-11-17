@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DevCycle JavaScript CDN Example</title>
+    <link rel="icon" href="./favicon.svg" />
+    <script
+      src="https://js.devcycle.com/devcycle.min.js"
+      type="text/javascript"
+    ></script>
+    <link rel="stylesheet" href="App.css" type="text/css" />
+  </head>
+
+  <body class="App">
+    <img src="./logo.png" class="App-logo" alt="logo" id="logo" />
+
+    <div class="App-user">
+      <h1 id="greeting">Loading...</h1>
+      <h2 id="user">Current User: Anonymous User</h2>
+      <button id="identify" class="App-button"> Identify User </button>
+      <button id="reset" class="App-button"> Reset User </button>
+    </div>
+
+    <div>
+      <p>Edit <code>scripts/devcycle.js</code> and refresh to reload.</p>
+      <a
+        class="App-link"
+        href="https://docs.devcycle.com/sdk/client-side-sdks/javascript/"
+        target="_blank"
+      >
+        DevCycle SDK Docs
+      </a>
+    </div>
+
+    <script src="./.env" type="text/javascript"></script>
+    <script src="scripts/devcycle.js" type="text/javascript"></script>
+  </body>
+</html>
