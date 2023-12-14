@@ -10,17 +10,19 @@ This example app requires that your project has a feature with the expected vari
 
 When you run the example app and switch your identity between users, you'll be able to see the feature's different variations.
 
+## Running the Example
+### Setup
 
-## Running the example
-
-* Create a `.env` file and set `DEVCYCLE_CLIENT_SDK_KEY` to the SDK Key for your environment.\
+Create a `.env` file and set `DEVCYCLE_CLIENT_SDK_KEY` to the SDK Key for your environment.\
 You can find this under [Settings > Environments](https://app.devcycle.com/r/environments) on the DevCycle dashboard. [Learn more about environments](https://docs.devcycle.com/essentials/environments).
+
+### Development
+
 * Open `main.html` in a browser
 * Open Developer Tools to see debug logs from the DevCycle client 
+* See `devcycle.js` to modify the DevCycle SDK configuration
 
-If you added user targeting to your feature, update the user objects in `devcycle.js` based on your targeting rules.
 
+### Testing
 
-## Testing
-
-* For examples of mocking and testing with DevCycle, see the test suite in the [DevCycle JS Module Example](https://github.com/DevCycleHQ-Sandbox/example-javascript/blob/main/src/devcycle.test.js) 
+For examples of mocking and testing with DevCycle, see the test suite in the [DevCycle JS Module Example](https://github.com/DevCycleHQ-Sandbox/example-javascript/blob/main/src/devcycle.test.js) 
