@@ -95,3 +95,5 @@ const customVariationInstructions = `
     </p>
 `;
 
+module.exports = updateUI;
+
