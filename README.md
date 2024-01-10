@@ -18,9 +18,10 @@ You can find this under [Settings > Environments](https://app.devcycle.com/r/env
 
 ### Development
 
-* Open `main.html` in a browser
-* Open Developer Tools to see debug logs from the DevCycle client 
-* See `devcycle.js` to modify the DevCycle SDK configuration
+`npm run start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 ### Testing
