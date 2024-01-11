@@ -1,9 +1,7 @@
 // Use DevCycle variables to control the UI 
 const updateUI = (devcycleClient) => {
-    const demoFeature = devcycleClient.allFeatures()['hello-togglebot'];
-
-    updateToggleBotSection(devcycleClient, demoFeature);
-    updateInstructionsSection(demoFeature);
+    updateToggleBotSection(devcycleClient);
+    updateInstructionsSection(devcycleClient);
 }
 
 const getToggleBotMessage = (spinSpeed) => {
@@ -16,8 +14,9 @@ const getToggleBotMessage = (spinSpeed) => {
     }
 }
 
-const updateToggleBotSection = (devcycleClient, demoFeature) => {
+const updateToggleBotSection = (devcycleClient) => {
     // Display variation name
+    const demoFeature = devcycleClient.allFeatures()['hello-togglebot'];
     document.getElementById("variation-name").innerHTML = `"${demoFeature?.variationName ?? 'Default'}"`;
 
     // Get variables from DevCycle
@@ -39,19 +38,17 @@ const updateToggleBotSection = (devcycleClient, demoFeature) => {
     togglebot.classList.add(`spin-${spinSpeed}`);
 }
 
-const updateInstructionsSection = (demoFeature) => {
+const updateInstructionsSection = (devcycleClient) => {
+    const spinSpeed = devcycleClient.variableValue('togglebot-speed', 'off');
+
     let header;
     let details;
-    switch (demoFeature?.variationKey) {
-        case undefined:
-            header = "Welcome to DevCycle's example app.";
-            details = defaultVariationInstructions;
-            break;
-        case "variation-base":
+    switch (spinSpeed) {
+        case 'off':
             header = "Welcome to DevCycle's example app.";
             details = baseVariationInstructions;
             break;
-        case "variation-wink":
+        case "slow":
             header = "Great! You've taken the first step in exploring DevCycle.";
             details = winkVariationInstructions;
             break;
@@ -64,16 +61,13 @@ const updateInstructionsSection = (demoFeature) => {
     document.getElementById("instructions-body").innerHTML = details;
 }
 
-const defaultVariationInstructions = `
-    <p>
-        If you got to the example app on your own, follow our <a target="_blank" href="https://github.com/DevCycleHQ-Labs/example-javascript/blob/main/README.md">README</a> guide to create the Feature and Variables you need in DevCycle to control this app.
-    </p>
-`;
-
-
 const baseVariationInstructions = `
     <p>
      If you got here through the onboarding flow, just follow the instructions to change and create new Variations and see how the app reacts to new Variable values.
+    </p>
+
+    <p>
+        If you got to the example app on your own, follow our <a target="_blank" href="https://github.com/DevCycleHQ-Labs/example-javascript/blob/main/README.md">README</a> guide to create the Feature and Variables you need in DevCycle to control this app.
     </p>
 `;
 
@@ -94,6 +88,7 @@ const customVariationInstructions = `
         There's still so much more to the platform, so go ahead and complete the onboarding flow and play around with the Feature that controls this example in your dashboard.
     </p>
 `;
+
 
 module.exports = updateUI;
 
