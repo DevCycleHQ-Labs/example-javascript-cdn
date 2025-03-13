@@ -7,7 +7,6 @@ const setUpDevCycle = () => {
     }
     
     // Initialize the DevCycle client with your SDK key and user
-    const devcycleOptions = { logLevel: "debug" };
     const devcycleClient = DevCycle.initializeDevCycle(
         process.env.DEVCYCLE_CLIENT_SDK_KEY,
         // Edit the user properties to see how they interact with your feature targeting rules
@@ -16,7 +15,11 @@ const setUpDevCycle = () => {
             name: 'User 1',
             email: 'user1@email.com'
         },
-        devcycleOptions
+        { 
+            logLevel: "debug",
+            // Controls the interval between flushing events to the DevCycle servers
+            eventFlushIntervalMS: 1000
+        }
     );
 
     // Update the app when DevCycle receives the first user config
